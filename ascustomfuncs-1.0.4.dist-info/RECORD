@@ -1,0 +1,11 @@
+ascustomfuncs-1.0.4.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+ascustomfuncs-1.0.4.dist-info/METADATA,sha256=SeMvzrEaiIEsnre_naO1l_sv_AzQl5wn2UUHpVp_PSo,197
+ascustomfuncs-1.0.4.dist-info/RECORD,,
+ascustomfuncs-1.0.4.dist-info/WHEEL,sha256=5_icmDMydZ-QHVJkN85WMiquoff97UWL2vMoqr-nroQ,93
+ascustomfuncs-1.0.4.dist-info/top_level.txt,sha256=AmYFxaMGZiJQwMuwIJFZNps_KgjpuJ2kKC9lRQIv2F8,14
+ascustomfuncs/__init__.py,sha256=lL8HU4eOcn6uTvCiKwgOBrMF_d7mTWidA2VlxS-UVt4,22
+ascustomfuncs/__pycache__/__init__.cpython-37.pyc,,
+ascustomfuncs/__pycache__/preprocessor.cpython-37.pyc,,
+ascustomfuncs/__pycache__/util.cpython-37.pyc,,
+ascustomfuncs/preprocessor.py,sha256=ap0g6bTXKe9ZfmuboK2UKMAzqGKTrHe9qb5_0MP6SLo,54835
+ascustomfuncs/util.py,sha256=7UwU5KMR03RwwG7EjGl23sZAGl0Fi0LFUCyrlmsxBm0,2308
