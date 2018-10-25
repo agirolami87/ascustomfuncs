@@ -1334,19 +1334,17 @@ class TiltCalc(BaseTransformer):
     '''
     url = PACKAGE_URL
     
-    def __init__(self, input_item, output_item_x,output_item_y):
+    def __init__(self, input_item, output_item):
                 
         self.input_item = input_item
-        self.output_item_x = output_item_x
-        self.output_item_y = output_item_y
+        self.output_item = output_item
         super().__init__()
 
     def execute(self, df):
         df = df.copy()
         a=df[self.input_item].str.split('\[|,|\]').values
         for r,c in enumerate(a):
-            df.loc[r,self.output_item_x] = np.arcsin(float(c[1])/9.8)
-            df.loc[r,self.output_item_y] = np.arcsin(float(c[2])/9.8)
+            df.loc[r,self.output_item] = '['+str(np.arcsin(float(c[1])/9.8))+','+str(np.arcsin(float(c[2])/9.8))+']'
         return df
     
 
