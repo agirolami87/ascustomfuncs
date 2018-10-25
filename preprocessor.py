@@ -1347,4 +1347,33 @@ class TiltCalc(BaseTransformer):
             df.loc[r,self.output_item] = '['+str(np.arcsin(float(c[1])/9.8))+','+str(np.arcsin(float(c[2])/9.8))+']'
         return df
     
+class ToParquet(BaseTransformer):
+    '''
+    Denormalize and save as parquet file in COS.
+    '''
+
+    url = PACKAGE_URL
+    
+    def __init__(self, sens_pos, X, Y, Z, output_status):
+        self.sens_pos = sens_pos
+        self.X = X
+        self.Y = Y
+        self.Z = Z
+        self.output_status = output_status
+        super().__init__()
+
+    def execute (self, df):
+        df = df.copy()
+        df2 = []
+        for sens in df[self.sens_pos].drop_duplicates():
+            df1 = pd.concat([pd.Series([int(element) for list_ in df[df[self.sens_pos]==sens][axis].str.split(',').values for element in list_]).rename(axis) for axis in [self.X,self.Y,self.Z]], axis=1)
+            df1[self.sens_pos] = sens
+            df2.append(df1)
+        df2 = pd.concat(df2, ignore_index=True)
+        df2.to_parquet('test_file.parquet')    
+        df[self.output_status]=cosSave(obj='test_file.parquet',bucket='iotcs-as-bucket',filename=str(dt.datetime.now().isoformat())+'.parquet',credentials=credentials_cos)
+        return df  
+
+
+    
 
